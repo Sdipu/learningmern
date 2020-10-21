@@ -1,0 +1,19 @@
+ app.post('/',(req,res)=>{
+   const flag =0;
+        var num11 =req.body.num1;
+        var pswdt = req.body.num2;
+      
+        
+        user.findOne({email: num11},function(err,founduser){
+          if(err) console.log(err)
+          else
+          if(founduser){
+          if(founduser.pswd===pswdt)
+          res.render('home');
+        else res.redirect("/")
+      }
+          else
+          res.redirect("/")
+
+
+        })
