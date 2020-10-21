@@ -1,0 +1,32 @@
+const mongoose = require('mongoose');// require mongoose
+const { stringify } = require('querystring');
+mongoose.connect('mongodb://localhost:27017/userpswd', {useNewUrlParser: true, useUnifiedTopology: true});
+
+app.set('view engine', 'ejs');
+
+
+// model make
+const user = mongoose.model('user', { email: String , pswd: String });
+
+
+
+
+
+app.post('/register',(req,res)=>{
+   
+const user1 = new user({ email:'akash ',pswd:'1234' });
+const user2 = new user({ email:'akashi ',pswd:'1235' });
+const user3 = new user({ email:'akashu ',pswd:'1236' });
+
+const allusers =[user1,user2,user3];
+
+    var name =req.body.num1;
+    var pswdt = req.body.num2;
+    const k = new user({ email:name ,pswd:pswdt });
+    console.log(k)
+    
+    allusers.push(k)
+    //console.log(name);
+    user.insertMany(allusers);
+
+  })
