@@ -1,0 +1,17 @@
+const user = mongoose.model('user', { email: String , pswd: String ,name : String}); 
+ 
+ 
+ 
+ 
+  app.post('/register',(req,res)=>{
+   
+const newuser =new user ( {
+  email: req.body.email,
+  pswd : req.body.pswd,
+  name : req.body.username
+
+})
+newuser.save(function(err){
+  if(err) console.log(error);
+  else res.render("home")
+})
