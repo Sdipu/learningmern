@@ -1,0 +1,164 @@
+const express = require('express'); //express connection 
+const { dirname } = require('path');
+const app = express()// expres use
+var bodyParser = require('body-parser')// taking input 
+require('dotenv').config()
+const port = 3000
+app.use(bodyParser.urlencoded({extended:true}))
+app.use(express.static("public"));// connecting css to server
+var encrypt = require('mongoose-encryption');
+var md5 = require('md5');
+
+
+const mongoose = require('mongoose');// require mongoose
+const { stringify } = require('querystring');
+mongoose.connect("mongodb+srv://deepak_admin:deepak79@cluster0.sc8w7.mongodb.net/userpswd?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology: true});
+
+app.set('view engine', 'ejs');
+
+
+// model make
+var userSchema = new mongoose.Schema({
+  email: String ,
+   pswd: String ,
+   name : String
+});
+//userSchema.plugin(encrypt, { secret: process.env.Secret,encryptedFields: ['pswd']  })
+const user = mongoose.model('user',userSchema );
+
+
+
+var feedbackSchema = new mongoose.Schema({
+  firstname: String ,
+   lastname: String ,
+   description : String
+});
+//userSchema.plugin(encrypt, { secret: process.env.Secret,encryptedFields: ['pswd']  })
+const feedback = mongoose.model('feedback',feedbackSchema );
+
+
+//find model
+////user.find({},function(err,name){
+ // console.log(name);
+//})
+
+
+
+
+
+
+app.get('/', (req, res) => {
+  res.render("login")
+
+});
+app.get('/about', (req, res) => {
+  res.render("about")
+  });
+  app.get('/home', (req, res) => {
+    res.render("home")
+  })
+  app.get('/register', (req, res) => {
+    res.render("register")
+  })
+  app.get('/civil', (req, res) => {
+    res.render("result")
+  })
+  app.get('/computer', (req, res) => {
+    res.render("computer")
+  })
+    app.get('/electronics', (req, res) => {
+      res.render("electronics")
+  })
+  app.get('/contact', (req, res) => {
+    res.render("contact")
+})
+app.get('/upload', (req, res) => {
+  res.render("upload")
+})
+
+
+
+ app.post('/register',(req,res)=>{
+
+const newuser =new user ( {
+  email: req.body.email,
+  pswd : md5(req.body.pswd),
+  name : req.body.username
+
+})
+newuser.save(function(err){
+  if(err) console.log(error);
+  else res.render("home")
+})
+
+})
+
+app.post('/contact',(req,res)=>{
+
+  const newfeedback =new feedback ( {
+    firstname: req.body.firstname,
+    lastname : req.body.lastname,
+    description : req.body.description
+  
+  })
+  newfeedback.save(function(err){
+    if(err) console.log(error);
+    else res.render("home")
+  })
+  
+  
+  
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  app.post('/',(req,res)=>{
+   const flag =0;
+        var num11 =req.body.num1;
+        var pswdt = md5(req.body.num2);
+      
+        
+        user.findOne({email: num11},function(err,founduser){
+          if(err) console.log(err)
+          else
+          if(founduser){
+          if(founduser.pswd===pswdt)
+          res.render('home');
+        else res.redirect("/")
+      }
+          else
+          res.redirect("/")
+
+
+        })
+
+         
+
+        
+    
+      })
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
+})
