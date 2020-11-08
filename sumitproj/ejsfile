@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+        <script type="text/javascript"src="//code.jquery.com/jquery-1.9.1.js"></script> 
+        <link rel="stylesheet"type="text/css"href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="register.css">
+        
+        <title>Register</title>
+        <link href="./assets/css/style_exam.css" media="screen" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <% if(typeof err != 'undefined') { %>
+            <h1><%= err %></h1> 
+ 
+        <% } %>
+     
+     
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 form-wrap">
+                <div class="form">
+                    <h2 style="text-align: center;">Register now</h2>
+    <p style="text-align: center;">Send us your details and get started notified with every new update on Goverment Jobs and More....</p>
+               <div class="input" >
+
+               <form method="POST" action="/register"></form>
+                    <label  for="fname">Name:</label>
+                    <input type="text" class="form-control" name="name" style=" text-align:center;" placeholder=" Your Full Name"><br><br>
+                    <span><label style=" text-align:center;" for="mobno">Enter Mobile Number without country code</label>
+                    <input style=" text-align:center;" type="tel" name="phoneno" placeholder="Your Mobile Number"class="form-control" pattern="[789][0-9]{9}}"></span><br><br>
+                    <label  for="partID">Enter Email</label><br>
+                    <input style=" text-align:center;" type="email" class="form-control" name="email"placeholder="Your Email"><br><br>
+                    <label for="address">Enter your Address:</label>
+                    <textarea  class="form-control" rows="5" name="adress" style="overflow:none;" style="text-align:center;" placeholder=" Enter your Address"></textarea><br><br>
+                    <label for="choice">Choose your Interest</label><select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                        <option selected>Choose...</option>
+                        <option value="1">SSC Recruitment</option>
+                        <option value="2">Railway Recruitment</option>
+                        <option value="3">Army Recruitment</option> 
+                      </select><br><br>
+                    <label for="partID" >Enter Password</label>
+                    <input style=" text-align:center;" type="password" class="form-control" name="password" placeholder="Enter password"><br><br>
+                    <label for="partID" >Confirm Password</label>
+                    <input style=" text-align:center;" type="password" class="form-control" name="confirmpassword" placeholder="Confirm password"><br><br>
+                    <input  type="submit" value="Submit" class="btn btn-primary">
+                </form >
+            </div>
+            </div>
+            </div>
+        
+    </div>
+    </div>
+    <footer>
+        <center>
+            <div>
+                <table id="foot">
+                    <thead style="text-align: left;">
+                        <th><h3>Quick Links</h3></th>
+                        <th><h3>Apps</h3></th>
+                        <th><h3>More</h3></th>
+                        <th></th>
+                        <th></th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="footer-td">
+                                <ul class="footer-list">
+                                    <li><a href="./about us.html">About Us</a></li>
+                                    <li><a href="">Contact Us</a></li>
+                                    <li><a href="./why.html">Why Us</a></li>
+                                    <li><a href="">All Board Exams</a></li>
+                                </ul>
+                            </td>
+                            <td class="footer-td">
+                                <ul class="footer-list">
+                                    <li><a href="">Android App</a></li>
+                                    <li><a href="">Apple IOS App</a></li>
+                                    <li><a href="">Window App</a></li>
+                                </ul>
+                            </td>
+                            <td class="footer-td">
+                                <ul class="footer-list">
+                                    <li><a href="">BPSC</a></li>
+                                    <li><a href="">Scholarship</a></li>
+                                    <li><a href="">UPSC</a></li>
+                                    <li><a href="">RPSC</a></li>
+                                    <li><a href="">UPPCS</a></li>
+                                    <li><a href="">Coast Guard</a></li>
+                                </ul>
+                            </td>
+                            <td class="footer-td">
+                                <ul class="footer-list">
+                                    <li><a href="">UPSSSC</a></li>
+                                    <li><a href="">IBPS</a></li>
+                                    <li><a href="">Air Force</a></li>
+                                    <li><a href="">Delhi DSSB</a></li>
+                                    <li><a href="">HSSC</a></li>
+                                    <li><a href="">Police Vacancy</a></li>
+                                </ul>
+                            </td>
+                            <td class="footer-td">
+                                <ul class="footer-list">
+                                    <li><a href="">CCC</a></li>
+                                    <li><a href="">SSC</a></li>
+                                    <li><a href="">NAVY</a></li>
+                                    <li><a href="">Railway</a></li>
+                                    <li><a href="">TET</a></li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </center>
+    </footer>
+    </body>
+</html>
+ 
+    </body>
+    </html>
+
+
